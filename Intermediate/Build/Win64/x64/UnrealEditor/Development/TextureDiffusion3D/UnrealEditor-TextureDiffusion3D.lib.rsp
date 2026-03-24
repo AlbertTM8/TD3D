@@ -1,0 +1,21 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-TextureDiffusion3D.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:/Unreal Projects/Pls/Intermediate/Build/Win64/x64/PlsEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/Module.TextureDiffusion3D.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureDiffusion3D.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureDiffusion3DCommands.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureDiffusion3DSettings.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureDiffusion3DStyle.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureProjectionWindow.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/CameraHelper.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/MathUtils.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/MeshProcessor.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/TextureUtils.cpp.obj"
+"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/Default.rc2.res"
+/OUT:"D:/Unreal Projects/Pls/Plugins/TextureDiffusion3D/Intermediate/Build/Win64/x64/UnrealEditor/Development/TextureDiffusion3D/UnrealEditor-TextureDiffusion3D.lib"

@@ -1,0 +1,21 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.TextureDiffusion3D.cpp.obj": [
+			"TextureDiffusion3D.gen.cpp.obj",
+			"TextureDiffusion3D.init.gen.cpp.obj",
+			"TextureDiffusion3DSettings.gen.cpp.obj",
+			"TextureProjectionTypes.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"CameraHelper.cpp.obj",
+			"MathUtils.cpp.obj",
+			"MeshProcessor.cpp.obj",
+			"TextureUtils.cpp.obj",
+			"TextureDiffusion3D.cpp.obj",
+			"TextureDiffusion3DCommands.cpp.obj",
+			"TextureDiffusion3DSettings.cpp.obj",
+			"TextureDiffusion3DStyle.cpp.obj",
+			"TextureProjectionWindow.cpp.obj"
+		]
+	}
+}

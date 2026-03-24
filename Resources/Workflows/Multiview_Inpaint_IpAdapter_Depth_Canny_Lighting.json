@@ -1,0 +1,468 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 293465443775424,
+      "steps": 40,
+      "cfg": 5.7,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "73",
+        0
+      ],
+      "positive": [
+        "72",
+        0
+      ],
+      "negative": [
+        "72",
+        1
+      ],
+      "latent_image": [
+        "72",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Unreal KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_ragnarokBy.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Positive Prompt"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Negative Prompt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "10": {
+    "inputs": {
+      "image": "Reference_Image_00032_.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Reference Image"
+    }
+  },
+  "11": {
+    "inputs": {
+      "ipadapter_file": "ip-adapter-plus-face_sdxl_vit-h.safetensors"
+    },
+    "class_type": "IPAdapterModelLoader",
+    "_meta": {
+      "title": "IPAdapter Model Loader"
+    }
+  },
+  "14": {
+    "inputs": {
+      "weight": 0.30000000000000004,
+      "weight_type": "style transfer",
+      "combine_embeds": "concat",
+      "start_at": 0,
+      "end_at": 1,
+      "embeds_scaling": "V only",
+      "model": [
+        "21",
+        0
+      ],
+      "ipadapter": [
+        "11",
+        0
+      ],
+      "image": [
+        "31",
+        0
+      ],
+      "clip_vision": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "IPAdapterAdvanced",
+    "_meta": {
+      "title": "Unreal IPAdapter"
+    }
+  },
+  "15": {
+    "inputs": {
+      "clip_name": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    },
+    "class_type": "CLIPVisionLoader",
+    "_meta": {
+      "title": "Load CLIP Vision"
+    }
+  },
+  "21": {
+    "inputs": {
+      "value": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "22": {
+    "inputs": {
+      "value": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "23": {
+    "inputs": {
+      "value": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "24": {
+    "inputs": {
+      "value": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "26": {
+    "inputs": {
+      "value": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "27": {
+    "inputs": {
+      "value": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "28": {
+    "inputs": {
+      "value": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "31": {
+    "inputs": {
+      "value": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "ReroutePrimitive|pysssss",
+    "_meta": {
+      "title": "Reroute Primitive 🐍"
+    }
+  },
+  "41": {
+    "inputs": {
+      "strength": 0.9000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.7000000000000002,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "control_net": [
+        "42",
+        0
+      ],
+      "image": [
+        "45",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Unreal Controlnet"
+    }
+  },
+  "42": {
+    "inputs": {
+      "control_net_name": "SDXL\\controlnet-depth-sdxl-1.0\\diffusion_pytorch_model.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "43": {
+    "inputs": {
+      "image": "ue_base_2025.08.17-12.28.11.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Base Color"
+    }
+  },
+  "45": {
+    "inputs": {
+      "image": "ue_depth_2025.08.18-09.11.39.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Depth"
+    }
+  },
+  "46": {
+    "inputs": {
+      "image": "ue_rgba_mask_2025.08.17-12.28.11.png",
+      "channel": "alpha"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Unreal Mask"
+    }
+  },
+  "51": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "52": {
+    "inputs": {
+      "filename_prefix": "Initial_Projection_Texture",
+      "images": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "53": {
+    "inputs": {
+      "seed": 46754579512696,
+      "denoise_steps": 8,
+      "ensemble_size": 3,
+      "processing_resolution": 1024,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "55",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "55": {
+    "inputs": {
+      "model": "prs-eth/marigold-iid-lighting-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "57": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 1,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": -2,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "51",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "70": {
+    "inputs": {
+      "model": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "DifferentialDiffusion",
+    "_meta": {
+      "title": "Differential Diffusion"
+    }
+  },
+  "71": {
+    "inputs": {
+      "scale": 1.5000000000000002,
+      "blur_sigma": 3,
+      "model": [
+        "70",
+        0
+      ]
+    },
+    "class_type": "SelfAttentionGuidance",
+    "_meta": {
+      "title": "Self-Attention Guidance"
+    }
+  },
+  "72": {
+    "inputs": {
+      "positive": [
+        "41",
+        0
+      ],
+      "negative": [
+        "41",
+        1
+      ],
+      "vae": [
+        "4",
+        2
+      ],
+      "pixels": [
+        "43",
+        0
+      ],
+      "mask": [
+        "46",
+        0
+      ]
+    },
+    "class_type": "INPAINT_VAEEncodeInpaintConditioning",
+    "_meta": {
+      "title": "VAE Encode & Inpaint Conditioning"
+    }
+  },
+  "73": {
+    "inputs": {
+      "model": [
+        "71",
+        0
+      ],
+      "patch": [
+        "74",
+        0
+      ],
+      "latent": [
+        "72",
+        2
+      ]
+    },
+    "class_type": "INPAINT_ApplyFooocusInpaint",
+    "_meta": {
+      "title": "Apply Fooocus Inpaint"
+    }
+  },
+  "74": {
+    "inputs": {
+      "head": "fooocus_inpaint_head.pth",
+      "patch": "inpaint_v26.fooocus.patch"
+    },
+    "class_type": "INPAINT_LoadFooocusInpaint",
+    "_meta": {
+      "title": "Load Fooocus Inpaint"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\unreal projects\\pls\\plugins\\texturediffusion3d\\source\\texturediffusion3d\\private\\texturediffusion3dsettings.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\unreal projects\\pls\\intermediate\\build\\win64\\x64\\plseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\unreal projects\\pls\\plugins\\texturediffusion3d\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\texturediffusion3d\\definitions.texturediffusion3d.h",
+            "d:\\unreal projects\\pls\\plugins\\texturediffusion3d\\source\\texturediffusion3d\\public\\texturediffusion3dsettings.h",
+            "d:\\unreal projects\\pls\\plugins\\texturediffusion3d\\intermediate\\build\\win64\\unrealeditor\\inc\\texturediffusion3d\\uht\\texturediffusion3dsettings.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

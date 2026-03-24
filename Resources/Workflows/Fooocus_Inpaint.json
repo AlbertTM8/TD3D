@@ -1,0 +1,369 @@
+{
+  "1": {
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "patch": [
+        "3",
+        0
+      ],
+      "latent": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "INPAINT_ApplyFooocusInpaint",
+    "_meta": {
+      "title": "Apply Fooocus Inpaint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "7",
+        1
+      ],
+      "vae": [
+        "26",
+        2
+      ],
+      "pixels": [
+        "22",
+        0
+      ],
+      "mask": [
+        "30",
+        0
+      ]
+    },
+    "class_type": "INPAINT_VAEEncodeInpaintConditioning",
+    "_meta": {
+      "title": "VAE Encode & Inpaint Conditioning"
+    }
+  },
+  "3": {
+    "inputs": {
+      "head": "fooocus_inpaint_head.pth",
+      "patch": "inpaint_v26.fooocus.patch"
+    },
+    "class_type": "INPAINT_LoadFooocusInpaint",
+    "_meta": {
+      "title": "Load Fooocus Inpaint"
+    }
+  },
+  "4": {
+    "inputs": {
+      "scale": 0.5000000000000001,
+      "blur_sigma": 2,
+      "model": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "SelfAttentionGuidance",
+    "_meta": {
+      "title": "Self-Attention Guidance"
+    }
+  },
+  "5": {
+    "inputs": {
+      "brushnet": "diffusion_pytorch_model.safetensors",
+      "dtype": "float32"
+    },
+    "class_type": "BrushNetLoader",
+    "_meta": {
+      "title": "BrushNet Loader"
+    }
+  },
+  "6": {
+    "inputs": {
+      "control_net_name": "SDXL\\controlnet-depth-sdxl-1.0\\diffusion_pytorch_model.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "7": {
+    "inputs": {
+      "strength": 0.9000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.9000000000000002,
+      "positive": [
+        "25",
+        0
+      ],
+      "negative": [
+        "13",
+        0
+      ],
+      "control_net": [
+        "6",
+        0
+      ],
+      "image": [
+        "23",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "8": {
+    "inputs": {
+      "filename_prefix": "Initial_Projection_Texture",
+      "images": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "9": {
+    "inputs": {
+      "model": "prs-eth/marigold-iid-appearance-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "10": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 1,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": -2,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "11": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "12": {
+    "inputs": {
+      "seed": 586158220820728,
+      "denoise_steps": 8,
+      "ensemble_size": 3,
+      "processing_resolution": 1024,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "9",
+        0
+      ],
+      "image": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "13": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Negative Prompt"
+    }
+  },
+  "14": {
+    "inputs": {
+      "samples": [
+        "16",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "16": {
+    "inputs": {
+      "seed": 772595701411872,
+      "steps": 10,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 0.5000000000000001,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "2",
+        1
+      ],
+      "latent_image": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Unreal_ReSampler"
+    }
+  },
+  "21": {
+    "inputs": {
+      "seed": 26050075034353,
+      "steps": 32,
+      "cfg": 3.91,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "2",
+        1
+      ],
+      "latent_image": [
+        "2",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Unreal_Sampler"
+    }
+  },
+  "22": {
+    "inputs": {
+      "image": "ue_rgba_mask_2025.08.01-15.25.59.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Base Color"
+    }
+  },
+  "23": {
+    "inputs": {
+      "image": "ue_depth_2025.08.01-15.25.59.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal_Depth"
+    }
+  },
+  "24": {
+    "inputs": {
+      "image": "ue_rgba_mask_2025.08.01-15.25.59.png",
+      "channel": "alpha"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Unreal Mask"
+    }
+  },
+  "25": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Positive Prompt"
+    }
+  },
+  "26": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_ragnarokBy.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "28": {
+    "inputs": {
+      "model": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "DifferentialDiffusion",
+    "_meta": {
+      "title": "Differential Diffusion"
+    }
+  },
+  "30": {
+    "inputs": {
+      "expand": 10,
+      "tapered_corners": true,
+      "mask": [
+        "24",
+        0
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  }
+}

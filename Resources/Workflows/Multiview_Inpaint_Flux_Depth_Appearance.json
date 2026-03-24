@@ -1,0 +1,488 @@
+{
+  "2": {
+    "inputs": {
+      "seed": 1112863279158825,
+      "steps": 24,
+      "cfg": 2,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "42",
+        0
+      ],
+      "positive": [
+        "38",
+        0
+      ],
+      "negative": [
+        "38",
+        1
+      ],
+      "latent_image": [
+        "14",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Unreal KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "6": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5\\t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "ue_rgba_mask_2025.09.23-15.18.23.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Base Color"
+    }
+  },
+  "14": {
+    "inputs": {
+      "noise_mask": true,
+      "positive": [
+        "54",
+        0
+      ],
+      "negative": [
+        "56",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ],
+      "pixels": [
+        "12",
+        0
+      ],
+      "mask": [
+        "47",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "34": {
+    "inputs": {
+      "image": "ue_rgba_mask_2025.09.23-15.18.23.png",
+      "channel": "alpha"
+    },
+    "class_type": "LoadImageMask",
+    "_meta": {
+      "title": "Unreal Mask"
+    }
+  },
+  "38": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 0.7,
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "14",
+        1
+      ],
+      "control_net": [
+        "39",
+        0
+      ],
+      "image": [
+        "40",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Unreal Controlnet"
+    }
+  },
+  "39": {
+    "inputs": {
+      "control_net_name": "FLUX.1\\flux_shakker_labs_union_pro-fp8_e4m3fn.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "40": {
+    "inputs": {
+      "image": "ue_depth_2025.09.20-22.58.54.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Depth"
+    }
+  },
+  "42": {
+    "inputs": {
+      "unet_name": "flux1-fill-dev-Q5_0.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "46": {
+    "inputs": {
+      "min": 0,
+      "max": 2,
+      "mask": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "RemapMaskRange",
+    "_meta": {
+      "title": "Remap Mask Range"
+    }
+  },
+  "47": {
+    "inputs": {
+      "expand": 5,
+      "tapered_corners": false,
+      "mask": [
+        "46",
+        0
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "53": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Positive Prompt"
+    }
+  },
+  "54": {
+    "inputs": {
+      "guidance": 30,
+      "conditioning": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "55": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Negative Prompt"
+    }
+  },
+  "56": {
+    "inputs": {
+      "guidance": 30,
+      "conditioning": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "59": {
+    "inputs": {
+      "model": "prs-eth/marigold-iid-appearance-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "60": {
+    "inputs": {
+      "seed": 453445944500798,
+      "denoise_steps": 8,
+      "ensemble_size": 5,
+      "processing_resolution": 1024,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "59",
+        0
+      ],
+      "image": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "61": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "60",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "62": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_BaseColor",
+      "images": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "63": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.8,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "64": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_Shaded",
+      "images": [
+        "63",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "65": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.8,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "61",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "66": {
+    "inputs": {
+      "seed": 1058541884147754,
+      "denoise_steps": 8,
+      "ensemble_size": 5,
+      "processing_resolution": 1024,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "69",
+        0
+      ],
+      "image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "67": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.5,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "66",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "68": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_Normal",
+      "images": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "69": {
+    "inputs": {
+      "model": "prs-eth/marigold-normals-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "70": {
+    "inputs": {
+      "image": "Generated Image September 29, 2025 - 11_36AM.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "71": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "70",
+        0
+      ],
+      "source": [
+        "72",
+        0
+      ],
+      "mask": [
+        "72",
+        1
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "72": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.8,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": -1,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  }
+}

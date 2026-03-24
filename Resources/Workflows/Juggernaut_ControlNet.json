@@ -1,0 +1,323 @@
+{
+  "25": {
+    "inputs": {
+      "strength": 1.0000000000000002,
+      "start_percent": 0,
+      "end_percent": 0.9000000000000002,
+      "positive": [
+        "26",
+        0
+      ],
+      "negative": [
+        "66",
+        0
+      ],
+      "control_net": [
+        "38",
+        0
+      ],
+      "image": [
+        "35",
+        0
+      ],
+      "vae": [
+        "37",
+        2
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Unreal ControlNet"
+    }
+  },
+  "26": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "37",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Positive Prompt"
+    }
+  },
+  "29": {
+    "inputs": {
+      "seed": 36078463225545,
+      "steps": 50,
+      "cfg": 6,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "37",
+        0
+      ],
+      "positive": [
+        "25",
+        0
+      ],
+      "negative": [
+        "25",
+        1
+      ],
+      "latent_image": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Unreal Sampler"
+    }
+  },
+  "32": {
+    "inputs": {
+      "samples": [
+        "29",
+        0
+      ],
+      "vae": [
+        "37",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "35": {
+    "inputs": {
+      "image": "ue_normal_2025.09.12-23.36.18.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Unreal Normal"
+    }
+  },
+  "36": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "37": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_ragnarokBy.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "38": {
+    "inputs": {
+      "control_net_name": "SDXL\\controlnet-union-sdxl-1.0\\diffusion_pytorch_model_promax.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "41": {
+    "inputs": {
+      "seed": 453445944500798,
+      "denoise_steps": 8,
+      "ensemble_size": 5,
+      "processing_resolution": 1536,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "42",
+        0
+      ],
+      "image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "42": {
+    "inputs": {
+      "model": "prs-eth/marigold-iid-appearance-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "54": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "55": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_BaseColor",
+      "images": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "64": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.8000000000000002,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "66": {
+    "inputs": {
+      "text": "blurry, fuzzy, out of focus, low resolution, pixelated, distorted, bad quality,deformed, bad anatomy, ugly, grainy, noisy, watermark, text, cropped, worst quality, harsh lighting, overexposed, reflections",
+      "clip": [
+        "37",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Unreal Negative Prompt"
+    }
+  },
+  "67": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_Shaded",
+      "images": [
+        "64",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "68": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.8000000000000002,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "54",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "69": {
+    "inputs": {
+      "seed": 1058541884147754,
+      "denoise_steps": 8,
+      "ensemble_size": 3,
+      "processing_resolution": 1024,
+      "scheduler": "DDIMScheduler",
+      "use_taesd_vae": false,
+      "keep_model_loaded": false,
+      "marigold_model": [
+        "70",
+        0
+      ],
+      "image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "MarigoldDepthEstimation_v2",
+    "_meta": {
+      "title": "MarigoldDepthEstimation_v2"
+    }
+  },
+  "70": {
+    "inputs": {
+      "model": "prs-eth/marigold-normals-v1-1"
+    },
+    "class_type": "MarigoldModelLoader",
+    "_meta": {
+      "title": "MarigoldModelLoader"
+    }
+  },
+  "71": {
+    "inputs": {
+      "model": "RMBG-2.0",
+      "sensitivity": 0.5000000000000001,
+      "process_res": 1024,
+      "mask_blur": 0,
+      "mask_offset": 0,
+      "invert_output": false,
+      "refine_foreground": false,
+      "background": "Alpha",
+      "background_color": "#222222",
+      "image": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "RMBG",
+    "_meta": {
+      "title": "Remove Background (RMBG)"
+    }
+  },
+  "72": {
+    "inputs": {
+      "filename_prefix": "Projection_Texture_Normal",
+      "images": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
